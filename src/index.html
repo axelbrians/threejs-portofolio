@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap" rel="stylesheet">
+    
+    <title>Axel Briano</title>
+</head>
+<body>
+    <canvas class="webgl"></canvas>
+
+    <main>
+        <div id="container-header">
+            <div id="content-header">
+                <h1 id="header-name" class="text-white">Axel Briano<br/>Suherik</h1>
+                <p id="header-title" class="text-white">I'm an Informatics Students at Institut Teknologi Sepuluh Nopember who is passionate in learning and programming. I'm currently really interested in Android Development.</p>
+            </div>
+        </div>
+    
+        <div class="section-skill">
+            <div class="section-title text-white"><h1>Tech Stack</h1></div>
+            <img src="https://cdn.jsdelivr.net/npm/programming-languages-logos/src/kotlin/kotlin.png" height="50">
+            <img src="https://cdn.jsdelivr.net/npm/programming-languages-logos/src/html/html.png" height="50">
+            <img src="https://cdn.jsdelivr.net/npm/programming-languages-logos/src/css/css.png" height="50">
+            <img src="https://cdn.jsdelivr.net/npm/programming-languages-logos/src/javascript/javascript.png" height="50">
+            <img src="https://cdn.jsdelivr.net/npm/programming-languages-logos/src/java/java.png" height="50">
+            <img src="https://cdn.jsdelivr.net/npm/programming-languages-logos/src/c/c.png" height="50">
+            <img src="https://cdn.jsdelivr.net/npm/programming-languages-logos/src/cpp/cpp.png" height="50">
+        </div>
+
+        <footer>
+            <h1 class="text-white text-center">Reach me at</h1>
+
+            <div class="footer-item-container">
+                <a class="footer-item text-white" href="https://www.linkedin.com/in/axel-brians/">Linkedin</a>
+                <a class="footer-item text-white" href="https://github.com/axelbrians">Github</a>
+                <a class="footer-item text-white" href="mailto:axelbrians@gmail.com">Email</a>
+                <a class="footer-item text-white" href="https://axelbrians.medium.com/">Medium</a>
+            </div>
+        </footer>
+    </main>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js" integrity="sha512-UxP+UhJaGRWuMG2YC6LPWYpFQnsSgnor0VUF3BHdD83PS/pOpN+FYbZmrYN+ISX8jnvgVUciqP/fILOXDjZSwg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/CSSRulePlugin.min.js" integrity="sha512-SuKlyVGK9c7adN5I0qO0zZt1KAXK9WpUguwgH16A3s8Wvrc1X3mum4PS9bI7223Y2v5KBzx3qTCdlVymgF0uWg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+
+        const content = CSSRulePlugin.getRule('#content-header:before');
+        const h1 = document.querySelector('#header-name');
+        const p = document.querySelector('#header-title');
+        const tl = gsap.timeline()
+
+        tl.from(content, {
+            delay: 0.7,
+            duration: 4,
+            cssRule: { scaleX: 0}
+        })
+
+        tl.to(
+            h1, 
+            {
+                duration: 2,
+                clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)',
+                y: '30px'
+            }, 
+            "-=3"
+        )
+
+        tl.to(
+            p, 
+            {
+                duration: 4,
+                clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)',
+                y: '30px'
+            },
+            "-=3"
+        )
+
+    </script>
+
+</body>
+</html>
