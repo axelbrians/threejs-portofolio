@@ -56,11 +56,8 @@ main {
 }
 
 #header-name {
-    font-size: 2.5rem;
     width: 50vw;
     padding-right: 0.3em;
-    line-height: 97%;
-    text-align: right;
 }
 
 #header-title {
@@ -69,8 +66,34 @@ main {
     padding-left: 0.3em;
 }
 
-.header-title-child {
+.header-name-text {
+    font-size: 2.5rem;
+    line-height: 97%;
+    text-align: right;
+}
 
+.typed-text {
+    white-space: pre-line;
+}
+
+.cursor {
+    display: inline-block;
+    background-color: #ccc;
+    margin-left: 0.1rem;
+    width: 3px;
+    animation: blink 1s infinite;
+}
+
+.typing {
+    animation: none;
+}
+
+@keyframes blink {
+    0%  { background-color: #ccc; }
+    49% { background-color: #ccc; }
+    50% { background-color: transparent; }
+    99% { background-color: transparent; }
+    100%  { background-color: #ccc; }
 }
 
 
