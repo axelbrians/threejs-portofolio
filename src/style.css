@@ -83,6 +83,16 @@ main {
     color: white;
 }
 
+.text-green {
+    background: -webkit-linear-gradient(45deg, #80ff72, #7ee8fa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.text-bold {
+    font-weight: bold;
+}
+
 .text-center {
     text-align: center;
 }
@@ -102,6 +112,16 @@ main {
 .item-skill {
     grid-column: 4 / 10;
     margin-top: 3em;
+}
+
+.section-experience {
+    grid-column: 3 / 11;
+    text-align: center;
+    margin-top: 8em;
+}
+
+.section-experience-list {
+    list-style-type: none;
 }
 
 footer {
