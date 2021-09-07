@@ -164,7 +164,7 @@ const tick = () =>
 tick()
 
 
-// HTML Animation
+// HTML Typewriter animation
 const newRow = document.createElement('br');
 const typedTextSpan = document.querySelector(".typed-text");
 const cursorSpan = document.querySelector(".cursor");

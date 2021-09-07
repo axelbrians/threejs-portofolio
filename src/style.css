@@ -36,8 +36,7 @@ main {
     height: auto;
     height: 100vh;
     position: relative;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-flow: row wrap;
 }
 
 #content-header:before {
@@ -49,21 +48,23 @@ main {
     transform: scaleX(1);
 }
 
-#header-name, #header-title {
-    flex-basis: 0;
-    flex-grow: 1;
-    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
-}
-
 #header-name {
-    width: 50vw;
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
     padding-right: 0.3em;
+    flex: 1;
 }
 
 #header-title {
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    flex: 1;
+    display: flex;
+    flex-flow: row wrap;
     font-size: 1.2rem;
-    width: 50vw;
     padding-left: 0.3em;
+}
+
+.header-title-content {
+    flex: 1;
 }
 
 .header-name-text {
@@ -94,6 +95,12 @@ main {
     50% { background-color: transparent; }
     99% { background-color: transparent; }
     100%  { background-color: #ccc; }
+}
+
+@media screen and (min-width: 1280px) {
+    .header-title-filler {
+        flex: 0.4;
+    }
 }
 
 
