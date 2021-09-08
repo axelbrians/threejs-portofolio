@@ -7,22 +7,27 @@ module.exports = {
     entry: path.resolve(__dirname, '../src/script.js'),
     output:
     {
-        filename: 'bundle.[contenthash].js',
+        filename: 'bundle.[name].js',
         path: path.resolve(__dirname, '../dist')
     },
     devtool: 'source-map',
     plugins:
-    [
+    [        
         new CopyWebpackPlugin({
             patterns: [
-                { from: path.resolve(__dirname, '../static') }
+                { 
+                    from: path.resolve(__dirname, '../src/assets/images'),
+                    to: path.resolve(__dirname, './assets/images'),
+                    force: true,
+                    // copyUnmodified: true
+                }
             ]
         }),
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, '../src/index.html'),
             minify: true
         }),
-        new MiniCSSExtractPlugin()
+        new MiniCSSExtractPlugin(),
     ],
     module:
     {
@@ -38,10 +43,7 @@ module.exports = {
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
-                use:
-                [
-                    'babel-loader'
-                ]
+                use: ['babel-loader']
             },
 
             // CSS
@@ -56,17 +58,8 @@ module.exports = {
 
             // Images
             {
-                test: /\.(jpg|png|gif|svg)$/,
-                use:
-                [
-                    {
-                        loader: 'file-loader',
-                        options:
-                        {
-                            outputPath: 'assets/images/'
-                        }
-                    }
-                ]
+                test: /\.(jpg|png|gif|svg)$/i,
+                type: 'asset/resource',
             },
 
             // Fonts

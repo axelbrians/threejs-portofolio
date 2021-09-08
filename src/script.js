@@ -1,12 +1,12 @@
-import './style.css'
-import * as THREE from 'three'
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
-import * as dat from 'dat.gui'
-
+import './style.css';
+import * as THREE from 'three';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+import * as dat from 'dat.gui';
+import crossResource from './assets/images/cross.png';
 
 // Texture loader
-const loader = new THREE.TextureLoader()
-const cross = loader.load('./cross.png')
+const loader = new THREE.TextureLoader();
+const cross = loader.load(crossResource);
 
 // Debug
 // const gui = new dat.GUI()
@@ -147,8 +147,8 @@ const tick = () =>
     particlesMesh.rotation.y = -0.05 * elapsedTime;
 
     if (mouseX > 0) {
-        particlesMesh.rotation.x = -mouseY * (elapsedTime * 0.00001);
-        particlesMesh.rotation.y = mouseX * (elapsedTime * 0.00001);
+        particlesMesh.rotation.x = -mouseY * (elapsedTime % 100 * 0.00001);
+        particlesMesh.rotation.y = mouseX * (elapsedTime  % 100 * 0.00001);
     }
 
     // Update Orbital Controls

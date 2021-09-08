@@ -128,20 +128,37 @@ main {
 }
 
 .section-skill {
-    grid-column: 4 / 10;
+    grid-column: 1 / span 12;
     text-align: center;
 }
 
 .section-title {
-    grid-column: 4 / 10;
+    grid-column: 1 / span 12;
     font-size: 1.5rem;
     text-align: center;
-    margin-bottom: 3em;
+    margin-bottom: 2em;
 }
 
-.item-skill {
-    grid-column: 4 / 10;
-    margin-top: 3em;
+.skill-item {
+    margin-left: 1em;
+    margin-right: 1em;
+    margin-top: 1em;
+}
+
+@media screen and (min-width: 1024px) {
+
+
+    .section-skill {
+        grid-column: 4 / 10;
+        text-align: center;
+    }
+    
+    .section-title {
+        grid-column: 4 / 10;
+        font-size: 1.5rem;
+        text-align: center;
+        margin-bottom: 2em;
+    }
 }
 
 .section-experience {

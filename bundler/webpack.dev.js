@@ -2,6 +2,7 @@ const { merge } = require('webpack-merge')
 const commonConfiguration = require('./webpack.common.js')
 const ip = require('internal-ip')
 const portFinderSync = require('portfinder-sync')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const infoColor = (_message) =>
 {
@@ -12,12 +13,17 @@ module.exports = merge(
     commonConfiguration,
     {
         mode: 'development',
+        plugins:
+        [
+            new CleanWebpackPlugin()
+        ],
         devServer:
         {
             host: '0.0.0.0',
             port: portFinderSync.getPort(8080),
-            contentBase: './dist',
+            contentBase: ['./dist'],
             watchContentBase: true,
+            writeToDisk: true,
             open: true,
             https: false,
             useLocalIp: true,
