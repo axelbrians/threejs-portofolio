@@ -20,15 +20,13 @@ const scene = new THREE.Scene()
 // Objects
 const geometry = new THREE.TorusGeometry( .7, .2, 16, 100 )
 const particlesGeo = new THREE.BufferGeometry()
-const particlesCount = 8000
+const particlesCount = 7000
 
 const posArray = new Float32Array(particlesCount * 3)
 
 for (let i = 0; i < particlesCount * 3; i++) {
     // posArray[i] = Math.random() - 0.5;
     posArray[i] = (Math.random() - 0.5) * 5
-
-
 }
 
 particlesGeo.setAttribute('position', new THREE.BufferAttribute(posArray, 3))
@@ -115,9 +113,15 @@ let mouseX = 0;
 let mouseY = 0;
 
 function animateParticles(event) {
+    // mouseY = event.clientY - (window.innerHeight / 2);
+    // mouseX = event.clientX - (window.innerWidth / 2);
+
     mouseY = event.clientY;
     mouseX = event.clientX;
-}
+
+    // console.log(`mouseY ${mouseY}`);
+    // console.log(`mouseX ${mouseX}`);
+  }
 
 function moveCamera() {
     const distance = document.body.getBoundingClientRect().top;
@@ -144,12 +148,29 @@ const tick = () =>
 
     // Update objects
     sphere.rotation.y = .2 * elapsedTime;
-    particlesMesh.rotation.y = -0.05 * elapsedTime;
+    particlesMesh.rotation.y = -0.02 * elapsedTime;
+    particlesMesh.rotation.x = -0.02 * elapsedTime;
 
     if (mouseX > 0) {
-        particlesMesh.rotation.x = -mouseY * (elapsedTime % 100 * 0.00001);
-        particlesMesh.rotation.y = mouseX * (elapsedTime  % 100 * 0.00001);
+        particlesMesh.rotation.x += -mouseY * (10 * 0.00001);
+        particlesMesh.rotation.y += mouseX * (10  * 0.00001);
     }
+
+
+    // if (mouseX > 0) {
+    //   particlesMesh.rotation.y += mouseX * (10  * 0.000001);
+    //   // particlesMesh.rotation.x = 0.02 * elapsedTime;
+    // } else {
+    //   // particlesMesh.rotation.x = -0.02 * elapsedTime;
+    // }
+
+    // if (mouseY > 0) {
+      
+    //   particlesMesh.rotation.x += -mouseY * (10 * 0.000001);
+    //   // particlesMesh.rotation.y = 0.02 * elapsedTime;
+    // } else {
+    //   // particlesMesh.rotation.x = -0.02 * elapsedTime;
+    // }
 
     // Update Orbital Controls
     // controls.update()
